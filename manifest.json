@@ -1,0 +1,4 @@
+{  
+  "name": "ServiceWorker Push Notification Demo",
+  "gcm_sender_id": "345546294016"
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Service Workers - Push Notifications</title>
+    <script type="text/javascript" src="script.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Service Workers - Push Notification</div>
+        <button type="button" onclick="requestNotificationPermission()">Request for Notification</button>
+        <button type="button" onclick="registerForPush()">Register For Push</button>
+        <div class="help">Open your console and make sure to refresh the page once to get demo working.
+            <br/> Step 1: Click Request for Notification button to register for notifications.
+            <br/> Step 2: Click on Register for push to register for push notifications.
+            <br/> Step 3: Copy and paste the following in the terminal by replacing (DEVICE_REGISTRATION_ID) with the one that appears in the console
+            <div class="console">
+                curl --header "Authorization: key=AIzaSyB_0mMNuc9YxPB8Z9BYtHHCvyCML7d2ZPk" --header "Content-Type: application/json" https://android.googleapis.com/gcm/send -d "{\"registration_ids\":[\"(DEVICE_REGISTRATION_ID)\"]}"
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
