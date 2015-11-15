@@ -32,6 +32,7 @@ function registerForPush() {
                 })
                 .then(function(subscription) {
                     console.log("Subscription for Push successful: ", subscription.endpoint);
+                    console.log("DEVICE_REGISTRATION_ID: ", subscription.endpoint.substr(subscription.endpoint.lastIndexOf('/') + 1));
                 })
                 .catch(function(error) {
                     console.log("Subscription for Push failed", error);
@@ -70,21 +71,3 @@ function doesBrowserSupportNotifications() {
         console.log("Everthing is fine you can continue")
     }
 };
-
-function sendPush(token) {
-    var http = new XMLHttpRequest();
-    var url = "https://android.googleapis.com/gcm/send";
-    var params = "{\"registration_ids\":[\"" + token + "\"]}";
-    http.open("POST", url, true);
-
-    //Send the proper header information along with the request
-    http.setRequestHeader("Content-Type", "application/json");
-    http.setRequestHeader("Authorization", "key=AIzaSyB_0mMNuc9YxPB8Z9BYtHHCvyCML7d2ZPk");
-
-    http.onreadystatechange = function() { //Call a function when the state changes.
-        if (http.readyState == 4 && http.status == 200) {
-            alert(http.responseText);
-        }
-    }
-    http.send(params);
-}
