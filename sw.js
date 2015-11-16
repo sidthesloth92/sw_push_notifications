@@ -3,7 +3,7 @@ self.addEventListener('push', function(event) {
 
     var title = 'Yay a message.';
     var body = 'We have received a push message.';
-    var icon = '/img.png';
+    var icon = 'img.png';
     var tag = 'simple-push-demo-notification-tag';
 
     event.waitUntil(
